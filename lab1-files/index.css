@@ -5,4 +5,306 @@ body {
   background-color: #e6ecf0;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 /* TODO: Create CSS for your Twitter Mockup */
+
+/* The assignment says to hide the skip button. However, this might not get picked up by screen readers */
+.skip-link {
+  display: none;
+}
+/* 
+The implementation below is from the recourse share in the assignment
+https://www.nomensa.com/blog/what-are-skip-links 
+*/
+/* .skip-link {
+  position: absolute;
+  left: -999em;
+  width: 990em;
+}
+
+a.skip-link:active,  a.skip-link:focus {
+  left: 0;
+  border: 3px #3399cc solid;
+  background-color: #fff;
+} */
+
+/* Navigation */
+.nav_wrapper {
+  padding: 10px 0;
+  background: #fff;
+}
+
+#nav {
+  max-width: 1190px;
+  margin: 0 auto;
+  padding: 0 10px
+}
+
+.nav_inner {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+}
+
+.nav_inner > div {
+  flex: 1;
+}
+
+.nav_inner_items {
+  margin-right: auto;
+}
+
+.nav_inner_items nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav_inner_items nav ul li {
+  display: inline-block;
+  padding-right: 20px;
+  font-weight: 800;
+}
+
+.nav_inner_items nav ul li a {
+  text-decoration: none;
+  color: #7b7b7b;
+}
+
+.nav_inner_items nav ul li:last-child {
+  padding-right: 0;
+}
+
+.nav_inner_logo {
+  flex: 1;
+  text-align: center;
+}
+.nav_inner_logo img {
+  max-width: 30px;
+}
+
+.nav_inner_tweet {
+  text-align: right;
+  margin-left: auto;
+}
+
+#nav_inner_tweet_button {
+  text-decoration: none;
+  color: #fff;
+  background-color: #4AB3F4;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-weight: 800;
+}
+
+/* Profile */
+.profile {
+  width: 100%;
+  max-width: 290px;
+  
+}
+
+.profile_info_wrap {
+  background: #fff;
+  padding: 0 20px 20px 20px;
+}
+
+.profile_info_picture img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.profile_banner {
+  height: 100px;
+  background: url(./images/ratatouille-banner.png) center center no-repeat;
+  background-size: 80%;
+  background-color: #000;
+}
+
+.profile_info {
+  display: flex;
+  align-items: end;
+  transform: translateY(-25px);
+  margin-bottom: -25px;
+}
+
+.profile_details {
+  padding: 0 0 0 15px;
+}
+
+.profile_details__name, .profile_details__username {
+  display: block;
+}
+
+.profile_details__name {
+  text-decoration: underline;
+  font-weight: 800;
+}
+.profile_details__username {
+  color: #959595;
+}
+
+.profile_numbers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.profile_numbers_item__heading, .profile_numbers_item__digit {
+  display: block;
+}
+
+.profile_numbers_item__heading {
+  color: #959595;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.profile_numbers_item__digit {
+  color: #4AB3F4;
+  font-weight: 800;
+}
+
+/* recommendations */
+.recommendations {
+  max-width: 290px;
+  width: 100%;
+}
+.recommendations_inner {
+  background: #fff;
+  padding: 20px;
+}
+
+.recommendations_heading {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 0;
+  margin: 0;
+}
+
+.recommendations_accounts_item {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px rgba(149, 149, 149,0.2);
+}
+
+.recommendations_accounts_item__image img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.recommendations_accounts_item {
+  display: flex;
+  align-items: center;
+}
+
+.recommendations_accounts_item__detail {
+  margin-left: 20px;
+}
+
+.recommendations_name {
+  font-weight: 800;
+}
+
+.recommendations_username {
+  color: #959595;
+}
+
+.recommendations_follow_btn {
+  text-decoration: none;
+  color: #4AB3F4;
+  border: solid 2px #4AB3F4;
+  border-radius: 20px;
+  padding: 5px 15px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 950px) {
+  .recommendations {
+    display: none;
+  }
+
+  .nav_inner {
+    flex-wrap: wrap;
+  }
+
+  .nav_inner_items, .nav_inner_logo, .nav_inner_tweet{
+    width: 100%;
+    flex: auto!important;
+    text-align: center;
+    margin: 5px 0;
+  }
+}
+
+/* Feed */
+
+.feed {
+  margin: 0 20px;
+  max-width: 600px;
+  width: 100%;
+  background: #fff;
+}
+
+.primary_content_inner {
+  max-width: 1190px;
+  margin: 20px auto;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feed_item_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.tweet-col {
+  /*   width: 1000px; */
+    min-height: 80px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #e6ecf0;
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+  }
+  
+  .tweet-info {
+    display: flex;
+    padding-top: 3px;
+    column-gap: 3%;
+    width: 200px;
+  }
+  
+  .tweet-username {
+    font-weight: bold;
+  }
+  
+  .left-tweet {
+    padding-left: 10px;
+    padding-top: 3px;
+    text-align: left;
+  }
+  
+  .tweet-right {
+    display: flex;
+    flex-direction: column;
+  /*   margin: auto; */
+    padding-left: 15px;
+    text-align: left;
+  }
+  
+  .tweet-profile-pic img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+  /* TODO: Create CSS for your Twitter Mockup */
+  
