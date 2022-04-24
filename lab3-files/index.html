@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter - @remy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-section">Jum to main content</a>
+    <div class="main">
+      <div class="nav_wrapper">
+       <div id="nav">
+         <div class="nav_inner"> 
+           <div class="nav_inner_items">
+              <nav role="navigation">
+                <ul>
+                  <li><a href="">Home</a></li>
+                  <li><a href="">Moments</a></li>
+                  <li><a href="">Notifications</a></li>
+                  <li><a href="">Messages</a></li>
+                </ul>
+              </nav>
+           </div>
+          <div class="nav_inner_logo">
+            <img src="./images/twitter-logo.png" alt="Twitter Logo">
+          </div>
+          <div class="nav_inner_tweet">
+            <div class="button_wrap">
+              <a id="nav_inner_tweet_button" href="#tweet">Tweet</a>
+            </div>
+          </div>
+         </div>
+       </div>
+      </div>
+      <div id="primary_content" role="main">
+        <div class="primary_content_inner">
+          <!-- Feed Section -->
+          <main id="main-section" class="feed" role="main">
+            <!-- Feed will be imported here -->
+            <div class="feed_inner" id="tweet-container"></div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
