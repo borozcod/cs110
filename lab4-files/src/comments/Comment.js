@@ -1,59 +1,67 @@
+import { useState } from "react";
 import CommentForm from "./CommentForm";
-import Comments from "./Comments";
+import Likes from "./Likes";
 
 const Comment = ({
   comment,
-  replies,
-  setActiveComment,
-  activeComment,
-  addComment,
-  parentId = null,
-  getReplies
+  depth
 }) => {
-  
-  const isReplying =
-    activeComment &&
-    activeComment.id === comment.id &&
-    activeComment.type === "replying";
-  
-  const replyId = parentId ? parentId : comment.id; // assign id of parent
-  console.log(parentId, comment.id, replyId);
-  const createdAt = new Date(comment.createdAt).toLocaleDateString(); // create date to display 
+
+  const commentDepth = depth + 1;
+
+  const [replieList, setReplyList] = useState([]);
+  const [isReplying, setIsReplying] = useState(false);
+
+  const addReply = (username, text, id) => {
+    const newReplyList = [...replieList, {
+      username: username,
+      body: text,
+      id: id
+    }];
+
+    setReplyList(newReplyList);
+    setIsReplying(false);
+  }
 
   return (
-    <div key={comment.id} className="comment">
+    <div key={comment.id} className="comment container-md mt-4 pe-0">
       <div className="comment-right-part">
-        <div className="comment-content">
-          <div className="comment-author">{comment.username}</div>
-          <div>{createdAt}</div>
-        </div>
-        <div className="comment-text">{comment.body}</div>
-        <div
-          className="comment-actions"
-          onClick={() => setActiveComment({ id: comment.id, type: "replying" , parentId: parentId})  }
-        > Reply </div>
-        
-        {isReplying && (
-          <CommentForm
-            submitLabel="Reply"
-           
-            handleSubmit={(username, text) => addComment(username,text, replyId)}
-            
-          />
-        )
-}
 
-        {replies.length > 0 && (
-          <div className="replies">
-            {replies.map((reply) => (
+
+
+
+        <div className="comment-content">
+          
+        <div class="row justify-content-between me-0 pe-0">
+          <div class="col-4 me-0">
+              <p className="text-primary text-start mb-0 pe-0">{comment.username}</p>
+              <p className="text-start">{comment.body}</p>
+              {commentDepth < 3 && (
+                <div className="text-start">
+                  <button onClick={() => setIsReplying(!isReplying) } type="button" className="btn btn-link text-muted py-0 px-0">Reply</button>
+              </div>
+              )}
+          </div>
+          <div class="col-2 me-0 pe-0">
+            <Likes />
+          </div>
+        </div>
+
+          
+          {isReplying && (
+            <CommentForm
+              submitLabel="Reply"
+              handleSubmit={addReply}
+            />
+          )}
+        </div>
+        {replieList.length > 0 && (
+          <div className="replies border-start">
+            {replieList.map((reply) => (
               <Comment
                 comment={reply}
                 key={reply.id}
-                setActiveComment={setActiveComment}
-                activeComment={activeComment}
-                addComment={addComment}
-                parentId={comment.id}
-                replies={() => Comment.getReplies(comment.id)}
+                depth={commentDepth}
               />
             ))}
           </div>
